@@ -28,17 +28,24 @@ namespace Task_4._2_Forms
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            try
+            {
                 int n = int.Parse(textBox1.Text);
                 if (n == 0)
-                textBox2.Text += "Ошибка: N = 0";
+                    textBox2.Text += "Ошибка: N = 0";
                 else if (n < 0)
-                textBox2.Text += "Ошибка: N меньше 0";
+                    textBox2.Text += "Ошибка: N меньше 0";
                 else if (n > 1000)
-                textBox2.Text += "Ошибка: N больше 1000";
+                    textBox2.Text += "Ошибка: N больше 1000";
                 else
                     Rec(n);
-            textBox2.Text = s;
-            s = "";
+                textBox2.Text = s;
+                s = "";
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
         }
     }
 }
